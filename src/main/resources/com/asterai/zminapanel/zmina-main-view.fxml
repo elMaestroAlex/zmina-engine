@@ -1,40 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<VBox
-    alignment="TOP_LEFT"
-    prefHeight="163.0"
-    prefWidth="210.0"
-    spacing="20.0"
-    xmlns:fx="http://javafx.com/fxml/1"
-    xmlns="http://javafx.com/javafx/17.0.2-ea"
-    fx:controller="com.asterai.zminapanel.HelloController"
->
+<VBox alignment="TOP_LEFT"
+      prefHeight="381.0"
+      prefWidth="546.0"
+      xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.asterai.zminapanel.MainWindowController">
 
     <MenuBar fx:id="menuBar">
         <menus>
             <Menu text="File">
                 <items>
-                    <MenuItem text="New" onAction="#handleFileNewProjectAction"/>
-                    <SeparatorMenuItem  />
-                    <MenuItem text="Exit"  onAction="#handleFileExitAction"/>
+                    <MenuItem onAction="#handleFileNewProjectAction" text="New"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem onAction="#handleFileExitAction" text="Exit"/>
                 </items>
             </Menu>
             <Menu text="Evolution">
                 <items>
-                    <MenuItem text="Start"  onAction="#handleEvolutionStartAction"/>
+                    <MenuItem onAction="#handleEvolutionStartAction" text="Start"/>
                 </items>
             </Menu>
 
         </menus>
     </MenuBar>
-
+    <TabPane prefHeight="100000" prefWidth="100000" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Env">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children>
+                            <Button layoutX="18.0" layoutY="110.0" mnemonicParsing="false" text="Run"/>
+                            <Label layoutX="18.0" layoutY="83.0" prefHeight="18.0" prefWidth="89.0"
+                                   text="Iterations: 0 "/>
+                            <TextField id="m_input" layoutX="63.0" layoutY="14.0" prefHeight="26.0" prefWidth="81.0"
+                                       promptText="2" text="5"/>
+                            <Label layoutX="18.0" layoutY="19.0" text="Input"/>
+                            <Label layoutX="173.0" layoutY="19.0" text="Expected"/>
+                            <TextField id="m_output" layoutX="237.0" layoutY="15.0" prefHeight="26.0" prefWidth="65.0"
+                                       promptText="4" text="10"/>
+                        </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+            <Tab text="Organisms">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="189.0" prefWidth="430.0">
+                        <children>
+                            <ListView layoutX="14.0" layoutY="14.0" prefHeight="300.0" prefWidth="200.0"
+                                      style="-fx-background-color: #eeeeee;" AnchorPane.bottomAnchor="5.0"
+                                      AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0"/>
+                        </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+        </tabs>
+    </TabPane>
 
 
 </VBox>

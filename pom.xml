@@ -80,7 +80,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.asterai.zminapanel.HelloApplication</mainClass>
+                            <mainClass>com.asterai.zminapanel.ZminaPanelApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
@@ -100,7 +100,7 @@
                         <archive>
                             <manifest>
                                 <addClasspath>true</addClasspath>
-                                <mainClass>com.asterai.zminapanel.HelloApplication</mainClass>
+                                <mainClass>com.asterai.zminapanel.ZminaPanelApplication</mainClass>
                             </manifest>
                         </archive>
                     </configuration>

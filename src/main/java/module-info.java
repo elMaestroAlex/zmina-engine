@@ -1,4 +1,4 @@
-module com.example.demo {
+module com.asterai.zmina {
     requires javafx.controls;
     requires javafx.fxml;
 
