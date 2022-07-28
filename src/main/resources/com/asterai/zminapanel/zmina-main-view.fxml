@@ -9,9 +9,7 @@
         <menus>
             <Menu text="File">
                 <items>
-                    <MenuItem onAction="#handleFileNewProjectAction" text="New" />
-                    <SeparatorMenuItem />
-                    <MenuItem onAction="#handleFileExitAction" text="Exit" />
+                     <MenuItem onAction="#handleFileExitAction" text="Exit" />
                 </items>
             </Menu>
             <Menu text="Evolution">
@@ -28,12 +26,12 @@
                 <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                         <children>
-                            <Button layoutX="18.0" layoutY="110.0" mnemonicParsing="false" text="Run" />
+                            <Button onAction="#handleEvolutionStartAction" layoutX="18.0" layoutY="110.0" mnemonicParsing="false" text="Run" />
                             <Label layoutX="18.0" layoutY="83.0" prefHeight="18.0" prefWidth="89.0" text="Iterations: 0 " />
-                            <TextField id="m_input" layoutX="63.0" layoutY="14.0" prefHeight="26.0" prefWidth="81.0" promptText="2" text="5" />
+                            <TextField id="m_input" fx:id="m_inputValue"  layoutX="63.0" layoutY="14.0" prefHeight="26.0" prefWidth="81.0" promptText="2" text="5" />
                             <Label layoutX="18.0" layoutY="19.0" text="Input" />
                             <Label layoutX="173.0" layoutY="19.0" text="Expected" />
-                            <TextField id="m_output" layoutX="237.0" layoutY="15.0" prefHeight="26.0" prefWidth="65.0" promptText="4" text="10" />
+                            <TextField id="m_output" fx:id="m_expectedValue"   layoutX="237.0" layoutY="15.0" prefHeight="26.0" prefWidth="65.0" promptText="4" text="10" />
                         </children>
                     </AnchorPane>
                 </content>

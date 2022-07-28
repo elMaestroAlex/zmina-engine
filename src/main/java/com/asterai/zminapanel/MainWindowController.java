@@ -4,6 +4,7 @@ import com.asterai.zmina.engine.ZminaEngine;
 import com.asterai.zmina.organism.BaseOrganism;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
 public class MainWindowController {
 
@@ -11,6 +12,10 @@ public class MainWindowController {
 
     @FXML
     ListView m_organismList;
+    @FXML
+    TextField m_inputValue;
+    @FXML
+    TextField m_expectedValue;
 
     public MainWindowController() {
         super();
@@ -24,13 +29,11 @@ public class MainWindowController {
     }
 
     @FXML
-    protected void handleFileNewProjectAction() {
-        System.out.println("New project");
-    }
-
-    @FXML
     protected void handleEvolutionStartAction() {
-        System.out.println("Start evolution");
+        zminaEngine.run(
+            Integer.parseInt(m_inputValue.getText()),
+            Integer.parseInt(m_expectedValue.getText())
+        );
     }
 
     @FXML
@@ -52,7 +55,7 @@ public class MainWindowController {
         zminaEngine.addOrganism(new BaseOrganism("Kaya"));
 
         for (var item : zminaEngine.getOrganismList()) {
-            m_organismList.getItems().add( String.format("%s : %d", item.getName(), item.getState()));
+            m_organismList.getItems().add(String.format("%s : %d", item.getName(), item.getState()));
         }
     }
 }

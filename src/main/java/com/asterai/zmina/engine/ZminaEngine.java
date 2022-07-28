@@ -12,6 +12,10 @@ public class ZminaEngine {
      */
     private List<Organism> organismList = new ArrayList<>();
 
+    public void run (int input, int expectedResult) {
+      System.out.println(String.format("Run engine - input: %d, expected: %d", input, expectedResult));
+    }
+
     public void addOrganism(Organism organism) {
         organismList.add(organism);
     }
