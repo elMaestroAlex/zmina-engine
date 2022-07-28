@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<VBox
+    alignment="TOP_LEFT"
+    prefHeight="163.0"
+    prefWidth="210.0"
+    spacing="20.0"
+    xmlns:fx="http://javafx.com/fxml/1"
+    xmlns="http://javafx.com/javafx/17.0.2-ea"
+    fx:controller="com.asterai.zminapanel.HelloController"
+>
+
+    <MenuBar fx:id="menuBar">
+        <menus>
+            <Menu text="File">
+                <items>
+                    <MenuItem text="New" onAction="#handleFileNewProjectAction"/>
+                    <SeparatorMenuItem  />
+                    <MenuItem text="Exit"  onAction="#handleFileExitAction"/>
+                </items>
+            </Menu>
+            <Menu text="Evolution">
+                <items>
+                    <MenuItem text="Start"  onAction="#handleEvolutionStartAction"/>
+                </items>
+            </Menu>
+
+        </menus>
+    </MenuBar>
+
+
+
+</VBox>
