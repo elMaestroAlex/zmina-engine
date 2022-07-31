@@ -14,6 +14,9 @@ public class ZminaEngine {
 
     public void run (int input, int expectedResult) {
       System.out.println(String.format("Run engine - input: %d, expected: %d", input, expectedResult));
+      for (var organism: organismList) {
+          organism.perform(input);
+      }
     }
 
     public void addOrganism(Organism organism) {

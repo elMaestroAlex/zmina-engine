@@ -34,6 +34,7 @@ public class MainWindowController {
             Integer.parseInt(m_inputValue.getText()),
             Integer.parseInt(m_expectedValue.getText())
         );
+        updateOrganismsList();
     }
 
     @FXML
@@ -53,6 +54,12 @@ public class MainWindowController {
         zminaEngine.addOrganism(new BaseOrganism("Poul"));
         zminaEngine.addOrganism(new BaseOrganism("Jasmine"));
         zminaEngine.addOrganism(new BaseOrganism("Kaya"));
+
+        updateOrganismsList();
+    }
+
+    void updateOrganismsList() {
+        m_organismList.getItems().clear();
 
         for (var item : zminaEngine.getOrganismList()) {
             m_organismList.getItems().add(String.format("%s : %d", item.getName(), item.getState()));

@@ -1,9 +1,14 @@
 package com.asterai.zmina.organism;
 
+import com.asterai.zmina.program.BaseProgram;
+import com.asterai.zmina.program.Program;
+
 public class BaseOrganism implements Organism {
 
     private int state = 0;
     private String name = "";
+
+    private Program program = new BaseProgram();
 
     public BaseOrganism(String name) {
         this.name = name;
@@ -21,8 +26,6 @@ public class BaseOrganism implements Organism {
 
     @Override
     public void perform(int input) {
-        System.out.print("Perform organize value = ");
-        System.out.print(input);
-        System.out.print("\n");
+        state = program.run(input);
     }
 }
