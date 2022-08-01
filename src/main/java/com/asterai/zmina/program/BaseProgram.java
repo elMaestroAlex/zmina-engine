@@ -1,13 +1,11 @@
 package com.asterai.zmina.program;
 
-import com.asterai.zmina.program.logic.PlusNode;
-import com.asterai.zmina.program.logic.LogicNode;
+import com.asterai.zmina.program.logic.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BaseProgram implements  Program {
-
 
     protected List<LogicNode> logic = new ArrayList<>();
 
@@ -26,8 +24,17 @@ public class BaseProgram implements  Program {
     }
 
     private void initLogic() {
-//        var plusNode = new PlusNode();
-//        plusNode.addParam();
-        logic.add(new PlusNode());
+        // return INPUT + CONST
+        var returnNode = new ReturnNode();
+        var plusNode = new PlusNode();
+
+        plusNode.addSubNode(new ReferenceInputNode());
+        plusNode.addSubNode(new ConstNode());
+
+        returnNode.addSubNode(plusNode);
+        logic.add(returnNode);
+
+        System.out.println("Logic has been init");
     }
+
 }

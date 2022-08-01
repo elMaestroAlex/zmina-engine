@@ -4,7 +4,6 @@ public interface LogicNode {
 //    void setType(Nodes type);
     Nodes getType();
 
-    void addParam(int param);
-
+    void addSubNode(NodeAbstract node);
 
 }

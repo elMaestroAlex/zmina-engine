@@ -8,8 +8,9 @@ public enum Nodes {
     MULTIPLY, // *
 
 
-    // Machine instructions
-    NOP, // no operation
+    // Language elements
+    RETURN,
+    CONST,
 
     // References
     REFERENCE_INPUT;

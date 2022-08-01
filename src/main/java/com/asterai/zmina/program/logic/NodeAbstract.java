@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 abstract public class NodeAbstract implements LogicNode {
-    protected Nodes type = Nodes.PLUS;
+    protected Nodes type;
 
-    protected List<Integer> params = new ArrayList<Integer>();
+    protected List<NodeAbstract> children = new ArrayList<>();
 
     @Override
     public Nodes getType() {
@@ -14,8 +14,8 @@ abstract public class NodeAbstract implements LogicNode {
     }
 
     @Override
-    public void addParam(int param) {
-        params.add(param);
+    public void addSubNode(NodeAbstract node) {
+        children.add(node);
     }
 
 }
