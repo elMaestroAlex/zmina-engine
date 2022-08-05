@@ -1,4 +1,4 @@
-package com.asterai.zmina.program.logic;
+package com.asterai.zmina.logic;
 
 import java.util.ArrayList;
 import java.util.List;

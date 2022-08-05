@@ -1,4 +1,4 @@
-package com.asterai.zmina.program.logic;
+package com.asterai.zmina.logic;
 
 public enum Nodes {
     // Arithmetic

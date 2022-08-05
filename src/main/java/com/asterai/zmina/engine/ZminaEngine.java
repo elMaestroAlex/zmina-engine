@@ -10,10 +10,10 @@ public class ZminaEngine {
     /**
      * List of current organisms that survived.
      */
-    private List<Organism> organismList = new ArrayList<>();
+    private final List<Organism> organismList = new ArrayList<>();
 
     public void run (int input, int expectedResult) {
-      System.out.println(String.format("Run engine - input: %d, expected: %d", input, expectedResult));
+      System.out.printf("Run engine - input: %d, expected: %d%n", input, expectedResult);
       for (var organism: organismList) {
           organism.perform(input);
       }

@@ -1,4 +1,4 @@
-package com.asterai.zmina.program.logic;
+package com.asterai.zmina.logic;
 
 public class ReferenceInputNode extends NodeAbstract {
     public ReferenceInputNode() {
