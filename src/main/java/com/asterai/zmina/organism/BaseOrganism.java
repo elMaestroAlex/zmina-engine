@@ -1,8 +1,8 @@
 package com.asterai.zmina.organism;
 
 import com.asterai.zmina.logic.*;
-import com.asterai.zmina.vm.BaseVirtualMachine;
-import com.asterai.zmina.vm.VirtualMachine;
+import com.asterai.zmina.processor.BaseLogicProcessor;
+import com.asterai.zmina.processor.LogicProcessor;
 
 public class BaseOrganism implements Organism {
 
@@ -11,7 +11,7 @@ public class BaseOrganism implements Organism {
 
     private LogicNode program;
 
-    private final VirtualMachine vm = new BaseVirtualMachine();
+    private final LogicProcessor processor = new BaseLogicProcessor();
 
 
     public BaseOrganism(String name) {
@@ -31,7 +31,7 @@ public class BaseOrganism implements Organism {
 
     @Override
     public void perform(int input) {
-        vm.run(program);
+        processor.run(program);
 //        state = program.run(input);
     }
 

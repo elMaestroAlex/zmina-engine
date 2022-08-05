@@ -1,7 +1,7 @@
-package com.asterai.zmina.vm;
+package com.asterai.zmina.processor;
 
 import com.asterai.zmina.logic.LogicNode;
 
-public interface VirtualMachine {
+public interface LogicProcessor {
     void run(LogicNode logic);
 }

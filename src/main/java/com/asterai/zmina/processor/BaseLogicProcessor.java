@@ -1,8 +1,8 @@
-package com.asterai.zmina.vm;
+package com.asterai.zmina.processor;
 
 import com.asterai.zmina.logic.LogicNode;
 
-public class BaseVirtualMachine implements VirtualMachine {
+public class BaseLogicProcessor implements LogicProcessor {
 
     @Override
     public void run(LogicNode logic) {
