@@ -28,10 +28,10 @@
                         <children>
                             <Button onAction="#handleEvolutionStartAction" layoutX="18.0" layoutY="110.0" mnemonicParsing="false" text="Run" />
                             <Label layoutX="18.0" layoutY="83.0" prefHeight="18.0" prefWidth="89.0" text="Iterations: 0 " />
-                            <TextField id="m_input" fx:id="m_inputValue"  layoutX="63.0" layoutY="14.0" prefHeight="26.0" prefWidth="81.0" promptText="2" text="5" />
+                            <TextField id="m_input" fx:id="m_inputValue"  layoutX="63.0" layoutY="14.0" prefHeight="26.0" prefWidth="81.0" promptText="2" text="3" />
                             <Label layoutX="18.0" layoutY="19.0" text="Input" />
                             <Label layoutX="173.0" layoutY="19.0" text="Expected" />
-                            <TextField id="m_output" fx:id="m_expectedValue"   layoutX="237.0" layoutY="15.0" prefHeight="26.0" prefWidth="65.0" promptText="4" text="10" />
+                            <TextField id="m_output" fx:id="m_expectedValue"   layoutX="237.0" layoutY="15.0" prefHeight="26.0" prefWidth="65.0" promptText="4" text="11" />
                         </children>
                     </AnchorPane>
                 </content>
