@@ -41,7 +41,7 @@ public class BaseOrganism implements Organism {
         var plusNode = new PlusNode();
 
         plusNode.addSubNode(new ReferenceInputNode());
-        plusNode.addSubNode(new ConstNode());
+        plusNode.addSubNode(new ConstNode(1));
 
         program.addSubNode(plusNode);
 

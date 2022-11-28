@@ -6,7 +6,7 @@ import java.util.List;
 abstract public class NodeAbstract implements LogicNode {
     protected Nodes type;
 
-    protected List<NodeAbstract> children = new ArrayList<>();
+    protected List<LogicNode> children = new ArrayList<>();
 
     @Override
     public Nodes getType() {
@@ -16,6 +16,15 @@ abstract public class NodeAbstract implements LogicNode {
     @Override
     public void addSubNode(NodeAbstract node) {
         children.add(node);
+    }
+
+    @Override
+    public List<LogicNode> getChildren() {
+        return children;
+    }
+    @Override
+    public boolean isPrimitive() {
+        return false;
     }
 
 }
