@@ -11,38 +11,37 @@ public class BaseLogicProcessor implements LogicProcessor {
         // return INPUT (3) + CONST (8)
         System.out.println("Proceed logic");
         System.out.println(logic);
-        runInstruction(logic);
+        processInstruction(logic);
     }
 
-    private void runInstruction(LogicNode node) {
+    private void processInstruction(LogicNode node) {
         LogicNode contextNode = node;
         switch (node.getType()) {
             case RETURN -> {
                 System.out.println("Proceed 'RETRUN' logic");
                 contextNode = contextNode.getChildren().get(0);
-                runExpression(contextNode);
+                processExpression(contextNode);
             }
         }
     }
 
-    private int runExpression(LogicNode node) {
+    private int processSingleNode(LogicNode node) {
+        int val;
+        if (node.isPrimitive()) {
+            val = processPrimitive(node);
+        } else {
+            val = processExpression(node);
+        }
+
+        return val;
+    }
+
+    private int processExpression(LogicNode node) {
         switch (node.getType()) {
             case PLUS -> {
-                LogicNode nodeLeft = node.getChildren().get(0);
-                LogicNode nodeRight = node.getChildren().get(1);
-                int valLeft;
-                int valRight;
-                if (nodeLeft.isPrimitive()) {
-                    valLeft = processPrimitive(nodeLeft);
-                } else {
-                    valLeft = runExpression(nodeLeft);
-                }
+                int valLeft = processSingleNode(node.getChildren().get(0));
+                int valRight = processSingleNode(node.getChildren().get(1));
 
-                if (nodeRight.isPrimitive()) {
-                    valRight = processPrimitive(nodeRight);
-                } else {
-                    valRight = runExpression(nodeRight);
-                }
                 System.out.print("Proceed 'PLUS' logic result = ");
                 System.out.println(valLeft + valRight);
                 return valLeft + valRight;
