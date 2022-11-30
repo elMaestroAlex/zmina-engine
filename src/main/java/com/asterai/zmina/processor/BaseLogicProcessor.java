@@ -10,19 +10,21 @@ public class BaseLogicProcessor implements LogicProcessor {
     public void run(LogicNode logic) {
         // return INPUT (3) + CONST (8)
         System.out.println("Proceed logic");
-        System.out.println(logic);
-        processInstruction(logic);
+        int resultOfRun  = processInstruction(logic);
+        System.out.print("Result of execution : ");
+        System.out.println(resultOfRun);
     }
 
-    private void processInstruction(LogicNode node) {
+    private int processInstruction(LogicNode node) {
         LogicNode contextNode = node;
         switch (node.getType()) {
             case RETURN -> {
-                System.out.println("Proceed 'RETRUN' logic");
                 contextNode = contextNode.getChildren().get(0);
-                processExpression(contextNode);
+                return processSingleNode(contextNode);
             }
         }
+
+        return 0;
     }
 
     private int processSingleNode(LogicNode node) {
@@ -42,8 +44,6 @@ public class BaseLogicProcessor implements LogicProcessor {
                 int valLeft = processSingleNode(node.getChildren().get(0));
                 int valRight = processSingleNode(node.getChildren().get(1));
 
-                System.out.print("Proceed 'PLUS' logic result = ");
-                System.out.println(valLeft + valRight);
                 return valLeft + valRight;
             }
         }

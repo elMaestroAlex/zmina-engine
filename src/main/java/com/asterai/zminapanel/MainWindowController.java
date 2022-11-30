@@ -53,7 +53,7 @@ public class MainWindowController {
         zminaEngine.addOrganism(new BaseOrganism("Petro"));
         zminaEngine.addOrganism(new BaseOrganism("Poul"));
         zminaEngine.addOrganism(new BaseOrganism("Jasmine"));
-        zminaEngine.addOrganism(new BaseOrganism("Kaya"));
+        zminaEngine.addOrganism(new BaseOrganism("Aurelia"));
 
         updateOrganismsList();
     }
@@ -65,4 +65,5 @@ public class MainWindowController {
             m_organismList.getItems().add(String.format("%s : %d", item.getName(), item.getState()));
         }
     }
+
 }
