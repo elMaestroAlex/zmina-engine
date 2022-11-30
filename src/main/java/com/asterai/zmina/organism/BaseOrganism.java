@@ -4,6 +4,8 @@ import com.asterai.zmina.logic.*;
 import com.asterai.zmina.processor.BaseLogicProcessor;
 import com.asterai.zmina.processor.LogicProcessor;
 
+import java.util.Map;
+
 public class BaseOrganism implements Organism {
 
     private int state = 0;
@@ -30,8 +32,8 @@ public class BaseOrganism implements Organism {
     }
 
     @Override
-    public void perform(int input) {
-        processor.run(program);
+    public void perform(Map<String, Integer> inputModel) {
+        processor.run(program, inputModel);
 //        state = program.run(input);
     }
 
@@ -40,8 +42,8 @@ public class BaseOrganism implements Organism {
         program = new ReturnNode();
         var plusNode = new PlusNode();
 
-        plusNode.addSubNode(new ReferenceInputNode());
-        plusNode.addSubNode(new ConstNode(1));
+        plusNode.addSubNode(new ReferenceInputNode("input"));
+        plusNode.addSubNode(new ConstNode(8));
 
         program.addSubNode(plusNode);
 

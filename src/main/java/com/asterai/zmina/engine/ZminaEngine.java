@@ -4,18 +4,19 @@ import com.asterai.zmina.organism.Organism;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ZminaEngine {
+
 
     /**
      * List of current organisms that survived.
      */
     private final List<Organism> organismList = new ArrayList<>();
 
-    public void run (int input, int expectedResult) {
-      System.out.printf("Run engine - input: %d, expected: %d%n", input, expectedResult);
+    public void run (Map<String, Integer> inputModel) {
       for (var organism: organismList) {
-          organism.perform(input);
+          organism.perform(inputModel);
       }
     }
 

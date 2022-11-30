@@ -6,6 +6,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainWindowController {
 
     private ZminaEngine zminaEngine;
@@ -30,10 +33,12 @@ public class MainWindowController {
 
     @FXML
     protected void handleEvolutionStartAction() {
-        zminaEngine.run(
-            Integer.parseInt(m_inputValue.getText()),
-            Integer.parseInt(m_expectedValue.getText())
-        );
+        Map<String, Integer> inputModel = new HashMap<>();
+        inputModel.put("input", Integer.parseInt(m_inputValue.getText()));
+        inputModel.put("expected", Integer.parseInt(m_expectedValue.getText()));
+
+        zminaEngine.run(inputModel);
+
         updateOrganismsList();
     }
 

@@ -4,10 +4,15 @@ import com.asterai.zmina.logic.ConstNode;
 import com.asterai.zmina.logic.LogicNode;
 import com.asterai.zmina.logic.ReferenceInputNode;
 
+import java.util.Map;
+
 public class BaseLogicProcessor implements LogicProcessor {
 
+    private Map<String, Integer> inputModel;
+
     @Override
-    public void run(LogicNode logic) {
+    public void run(LogicNode logic, Map<String, Integer> inputModel) {
+        this.inputModel = inputModel;
         // return INPUT (3) + CONST (8)
         System.out.println("Proceed logic");
         int resultOfRun  = processInstruction(logic);
@@ -59,7 +64,7 @@ public class BaseLogicProcessor implements LogicProcessor {
             }
             case REFERENCE_INPUT -> {
                 ReferenceInputNode refNode = (ReferenceInputNode) node;
-                return refNode.getValue();
+                return inputModel.get(refNode.getNodeName());
             }
         }
 
