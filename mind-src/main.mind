@@ -1,0 +1,23 @@
+
+interface DataFromUser {
+    varFromUser = 0
+}
+
+interface EquationMindResult {
+    result = 0
+}
+
+//
+// mind for particular entity (equation)
+// resolves equation like 3 + X = 11
+// Every mind model should contain at least 2 interfaces (for input and output)
+// {input} DataFromUser
+// {output} EquationMindResult
+mind Equation DataFromUser -> EquationMindResult {
+
+    const unknownXValue = 8
+
+    main {
+        out.result = in.varFromUser + unknownXValue
+    }
+}

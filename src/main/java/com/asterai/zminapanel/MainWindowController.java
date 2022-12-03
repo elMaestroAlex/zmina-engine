@@ -1,6 +1,7 @@
 package com.asterai.zminapanel;
 
 import com.asterai.zmina.engine.ZminaEngine;
+import com.asterai.zmina.logic.MindModel;
 import com.asterai.zmina.organism.BaseOrganism;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -54,6 +55,7 @@ public class MainWindowController {
     }
 
     private void preparareInitialOrganisms() {
+        zminaEngine.loadMindset("main.mind");
         zminaEngine.addOrganism(new BaseOrganism("Vasyl"));
         zminaEngine.addOrganism(new BaseOrganism("Petro"));
         zminaEngine.addOrganism(new BaseOrganism("Poul"));

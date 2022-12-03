@@ -1,6 +1,10 @@
 package com.asterai.zmina.logic;
 
 public enum Nodes {
+    // High level mind entities
+    MIND_MODEL,
+    MIND_INTERFACE,
+
     // Arithmetic
     PLUS, // +
     MINUS, // -

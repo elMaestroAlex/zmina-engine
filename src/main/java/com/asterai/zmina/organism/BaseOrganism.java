@@ -11,7 +11,7 @@ public class BaseOrganism implements Organism {
     private int state = 0;
     private String name = "";
 
-    private LogicNode program;
+    private LogicNode mindModel;
 
     private final LogicProcessor processor = new BaseLogicProcessor();
 
@@ -33,19 +33,19 @@ public class BaseOrganism implements Organism {
 
     @Override
     public void perform(Map<String, Integer> inputModel) {
-        processor.run(program, inputModel);
+        processor.run(mindModel, inputModel);
 //        state = program.run(input);
     }
 
     private void initLogic() {
         // return INPUT + CONST
-        program = new ReturnNode();
+        mindModel = new ReturnNode();
         var plusNode = new PlusNode();
 
         plusNode.addSubNode(new ReferenceInputNode("input"));
         plusNode.addSubNode(new ConstNode(8));
 
-        program.addSubNode(plusNode);
+        mindModel.addSubNode(plusNode);
 
         System.out.printf("Logic for '%s' has been init\n", name);
     }
