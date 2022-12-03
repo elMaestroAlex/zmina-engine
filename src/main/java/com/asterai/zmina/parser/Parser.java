@@ -2,41 +2,36 @@ package com.asterai.zmina.parser;
 
 import com.asterai.zmina.logic.MindsetNode;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Parser {
+
     public Map<String, MindsetNode> parseFile(String fileName) {
         Map<String, MindsetNode> result = new HashMap<>();
-        String fileContent = """
-                 
-                interface DataFromUser {
-                    varFromUser = 0
-                }
-                
-                interface EquationMindResult {
-                    result = 0
-                }
-                
-                //
-                // mind for particular entity (equation)
-                // resolves equation like 3 + X = 11
-                // Every mind model should contain at least 2 interfaces (for input and output)
-                // {input} DataFromUser
-                // {output} EquationMindResult
-                mind Equation DataFromUser -> EquationMindResult {
-                    const unknownXValue = 8
-                                
-                    main {
-                        out.result = in.varFromUser + unknownXValue
-                    }
-                }
-                """;
-        System.out.println(fileContent);
+        String fileContent = getFileContent(fileName);
+
         List<Token> tokens = tokenize(fileContent);
         return result;
+    }
+
+    private String getFileContent(String fileName) {
+        FileReader reader;
+        try {
+            reader = new FileReader(fileName);
+            File file = new File(fileName);
+            char[] c = new char[(int) file.length()];
+            reader.read(c);
+
+            return new String(c);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private List<Token> tokenize(String content) {

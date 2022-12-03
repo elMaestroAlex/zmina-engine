@@ -55,7 +55,7 @@ public class MainWindowController {
     }
 
     private void preparareInitialOrganisms() {
-        zminaEngine.loadMindset("main.mind");
+        zminaEngine.loadMindset("/Users/alexbaranezky/projects/zmina-panel/mind-src/main.mind");
         zminaEngine.addOrganism(new BaseOrganism("Vasyl"));
         zminaEngine.addOrganism(new BaseOrganism("Petro"));
         zminaEngine.addOrganism(new BaseOrganism("Poul"));
