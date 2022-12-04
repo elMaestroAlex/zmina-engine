@@ -5,7 +5,7 @@ import com.asterai.zmina.logic.MindsetNode;
 import java.util.List;
 import java.util.Map;
 
- interface MindsetElementBuilder {
+interface MindsetElementBuilder {
 
      /**
       * Builds element of mindset (eg. MindModel, Interface e.t.c)

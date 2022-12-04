@@ -7,7 +7,7 @@ import com.asterai.zmina.logic.ReferenceInterfaceNode;
 import java.util.List;
 import java.util.Map;
 
-public class BuilderInterface extends CommonBuilder implements MindsetElementBuilder {
+public class InterfaceBuilder extends CommonBuilder implements MindsetElementBuilder {
     @Override
     public int build(List<Token> tokens, Map<String, MindsetNode> mindSet, int cursorPos) {
         Token currentToken = tokens.get(cursorPos);
@@ -39,7 +39,7 @@ public class BuilderInterface extends CommonBuilder implements MindsetElementBui
             switch (currentToken.getType()) {
                 case StringToken -> {
                     if (prevToken.getType() == TokenType.Equals &&  currentInterfaceField != null) {
-                        currentInterfaceField.setValue(Integer.valueOf(currentToken.getContent()));
+                        currentInterfaceField.setValue(Integer.parseInt(currentToken.getContent()));
                     } else {
                         currentInterfaceField = new ReferenceInterfaceNode(currentToken.getContent());
                         interfaceNode.addSubNode(currentInterfaceField);

@@ -12,7 +12,8 @@ import java.util.Map;
 
 public class Parser {
 
-    MindsetElementBuilder interfaceBuilder = new BuilderInterface();
+    MindsetElementBuilder interfaceBuilder = new InterfaceBuilder();
+    MindsetElementBuilder mindsetElementBuilder = new MindModelBuilder();
 
     public Map<String, MindsetNode> parseFile(String fileName) {
         Map<String, MindsetNode> result = new HashMap<>();
@@ -30,6 +31,9 @@ public class Parser {
             switch (token.getType()) {
                 case InterfaceToken -> {
                     cursor = interfaceBuilder.build(tokens, mindSet, cursor);
+                }
+                case MindModelToken -> {
+                    cursor = mindsetElementBuilder.build(tokens, mindSet, cursor);
                 }
                 default -> ++cursor;
             }
