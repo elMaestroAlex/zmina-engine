@@ -2,7 +2,7 @@ package com.asterai.zmina.processor;
 
 import com.asterai.zmina.logic.ConstNode;
 import com.asterai.zmina.logic.LogicNode;
-import com.asterai.zmina.logic.ReferenceInputNode;
+import com.asterai.zmina.logic.ReferenceInterfaceNode;
 
 import java.util.Map;
 
@@ -62,9 +62,9 @@ public class BaseLogicProcessor implements LogicProcessor {
                 ConstNode cNode = (ConstNode) node;
                 return cNode.getValue();
             }
-            case REFERENCE_INPUT -> {
-                ReferenceInputNode refNode = (ReferenceInputNode) node;
-                return inputModel.get(refNode.getNodeName());
+            case REFERENCE_INTERFACE_FIELD -> {
+                ReferenceInterfaceNode refNode = (ReferenceInterfaceNode) node;
+                return inputModel.get(refNode.getInterfaceFieldName());
             }
         }
 

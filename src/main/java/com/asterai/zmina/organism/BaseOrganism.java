@@ -42,7 +42,7 @@ public class BaseOrganism implements Organism {
         mindModel = new ReturnNode();
         var plusNode = new PlusNode();
 
-        plusNode.addSubNode(new ReferenceInputNode("input"));
+        plusNode.addSubNode(new ReferenceInterfaceNode("input"));
         plusNode.addSubNode(new ConstNode(8));
 
         mindModel.addSubNode(plusNode);

@@ -17,5 +17,5 @@ public enum Nodes {
     CONST,
 
     // References
-    REFERENCE_INPUT;
+    REFERENCE_INTERFACE_FIELD;
 }

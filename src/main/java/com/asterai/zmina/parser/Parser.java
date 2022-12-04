@@ -12,12 +12,29 @@ import java.util.Map;
 
 public class Parser {
 
+    MindsetElementBuilder interfaceBuilder = new BuilderInterface();
+
     public Map<String, MindsetNode> parseFile(String fileName) {
         Map<String, MindsetNode> result = new HashMap<>();
         String fileContent = getFileContent(fileName);
 
         List<Token> tokens = tokenize(fileContent);
+        buildMindSet(tokens, result);
         return result;
+    }
+
+    private void buildMindSet(List<Token> tokens, Map<String, MindsetNode> mindSet) {
+        int cursor = 0;
+        while (cursor < tokens.size()) {
+            Token token = tokens.get(cursor);
+            switch (token.getType()) {
+                case InterfaceToken -> {
+                    cursor = interfaceBuilder.build(tokens, mindSet, cursor);
+                }
+                default -> ++cursor;
+            }
+        }
+        System.out.println();
     }
 
     private String getFileContent(String fileName) {
@@ -59,7 +76,6 @@ public class Parser {
                     }
 
                     cursor = tokenEnd;
-                    System.out.println(tokenEnd);
                 }
             }
 
