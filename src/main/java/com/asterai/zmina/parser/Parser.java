@@ -32,9 +32,9 @@ public class Parser {
                 case InterfaceToken -> {
                     cursor = interfaceBuilder.build(tokens, mindSet, cursor);
                 }
-                case MindModelToken -> {
-                    cursor = mindsetElementBuilder.build(tokens, mindSet, cursor);
-                }
+              //  case MindModelToken -> {
+                //    cursor = mindsetElementBuilder.build(tokens, mindSet, cursor);
+               // }
                 default -> ++cursor;
             }
         }
